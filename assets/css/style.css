@@ -1,0 +1,841 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@100;200;400;900&family=Roboto:wght@100;300&family=Quicksand&family=Tangerine&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: black;
+  font-family: Quicksand, sans-serif;
+}
+
+#grid-container {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, auto);
+  grid-template-areas:
+    "nav"
+    "header"
+    "recipes"
+    "calories"
+    "footer"
+    "copyright";
+}
+
+/********************************************* Nav *********************************************/
+nav {
+  grid-area: nav;
+  width: 100%;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas: "nav-left nav-right";
+  background: rgba(56, 213, 8, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1.5px outset rgba(255, 255, 255, 0.1);
+  position: fixed;
+  z-index: 10;
+}
+
+.nav-left {
+  grid-area: nav-left;
+  margin-left: 30px;
+  padding-top: 5px;
+}
+
+.logo {
+  width: 90px;
+  cursor: pointer;
+}
+
+.nav-right {
+  grid-area: nav-right;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  display: inline-block;
+  line-height: 60px;
+  margin-left: 40px;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  text-shadow: rgb(0 0 0 / 50%) 0 -1px 10px, rgb(24 64 11 / 50%) 0 2px 1px, rgb(0 0 0 / 50%) 0 0 5px, rgb(24 64 11 / 50%) 0 0 20px;
+}
+
+.menu-item a:hover {
+  color: rgb(65, 144, 17);
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.burger {
+  margin-top: 20px;
+  float: right;
+  display: none;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: white;
+}
+
+/********************************************* HEADER *********************************************/
+header {
+  grid-area: header;
+  width: 100%;
+  height: 100vh;
+  background: url("C:/Users/Owner/OneDrive/Desktop/veganbay/assets/images/foodwallpaper8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.header-container {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.header-container a {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  background: rgb(99, 221, 23);
+  background: linear-gradient(0deg, rgba(59, 152, 1, 0.9) 0%, rgba(0, 128, 0, 0.9) 60%);
+  padding: 10px;
+  border: solid 0.5px silver;
+  border-radius: 30px;
+  width: 200px;
+  height: 45px;
+  font-family: quicksand, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+button:hover {
+  background: #fff;
+  color: green;
+  border: solid 1px green;
+  font-weight: bold;
+}
+
+.slogan {
+  margin-bottom: 25px;
+  font-family: roboto, cursive;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.title {
+  color: rgb(73, 184, 3);
+  font-family: montserrat, sans-serif;
+  font-size: 5rem;
+}
+
+/********************************************* RECIPES *********************************************/
+#recipes {
+  grid-area: recipes;
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/616484/pexels-photo-616484.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, auto);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "random-recipes-cards"
+    "recipe-search-by-category"
+    "recipe-search-result";
+}
+
+/********* RANDOM RECIPES CARD **********/
+.random-recipes-cards {
+  grid-area: random-recipes-cards;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.random-recipes-cards h2 {
+  color: black;
+}
+
+.random-recipes-btn {
+  width: 40%;
+  background: rgb(99, 221, 23);
+  background: linear-gradient(0deg, rgba(59, 152, 1, 0.9) 0%, rgba(0, 128, 0, 0.9) 60%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: solid 0.5px rgba(0, 0, 0, 0.6);
+}
+
+.random-recipes-btn:hover {
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: scale(1.005);
+  background: rgb(99, 221, 23);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 243, 240, 0.9) 50%);
+  color: rgb(1, 84, 1);
+}
+
+.cards-container {
+  width: 90%;
+  height: 75%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "card1 card2 card3 card4";
+  grid-column-gap: 15px;
+  z-index: 2;
+}
+
+.card {
+  border: solid 0.5px silver;
+  background: rgba(64, 255, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card p {
+  padding: 10px 0;
+}
+
+.card img {
+  width: 100%;
+  height: 40%;
+  margin: 0;
+}
+
+.card:hover {
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
+  background: rgba(250, 250, 250, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: scale(1.005);
+}
+
+.card-info {
+  width: 100%;
+  height: 100%;
+}
+
+.card1 {
+  grid-area: card1;
+}
+
+.card2 {
+  grid-area: card2;
+}
+
+.card3 {
+  grid-area: card3;
+}
+
+.card4 {
+  grid-area: card4;
+}
+
+.random-recipes-cards h2 {
+  text-transform: capitalize;
+}
+
+/********* RECIPE SEARCH BY CATERGORY **********/
+.recipe-search-by-category {
+  grid-area: recipe-search-by-category;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  width: 90%;
+  height: 75%;
+  padding: 10px;
+  margin: 30px auto;
+  grid-template-areas:
+    "by-name by-nutritional-value by-ingredients by-similar-recipes"
+    "by-preferred-cuisine soups salads burgers"
+    "desserts sauces burgers lunch";
+  overflow: hidden;
+}
+
+.category-entry {
+  border: none;
+  background: rgba(64, 255, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: solid 0.5px silver;
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+  color: #0e471b;
+}
+
+.category-entry:hover {
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
+  background: rgba(250, 250, 250, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: scale(1.005);
+  border: solid 0.5px rgb(191, 190, 190);
+}
+
+.category-entry img {
+  width: 35px;
+  height: 35px;
+  margin: 0 15px;
+}
+
+/********* RECIPE SEARCH RESULT **********/
+.recipe-search-result {
+  grid-area: recipe-search-result;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-image: url("https://images.unsplash.com/photo-1606914469101-89a1980027fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.search-result-container {
+  width: 75%;
+  height: auto;
+  margin: 30px auto;
+  border: none;
+  background: rgba(211, 255, 196, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.search-result-container img {
+  border-radius: 20px;
+  margin: 15px auto;
+  width: 50%;
+  padding: 0;
+  border: solid 0.5px black;
+}
+
+.search-result-container p {
+  width: 90%;
+  margin: 10px auto;
+  text-align: justify;
+}
+
+.search-results-container-top {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-template-areas:
+    "results-image results-image results-image"
+    "results-title results-title results-title"
+    "results-nutritional-value results-servings results-cooking-time";
+  align-items: center;
+  text-align: center;
+  grid-column-gap: 15px;
+}
+
+.results-image {
+  grid-area: results-image;
+  grid-column: 1/4;
+}
+
+.results-title {
+  grid-area: results-title;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.results-nutritional-value {
+  grid-area: results-nutritional-value;
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.results-nutritional-value p {
+  padding: 5px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.results-servings {
+  grid-area: results-servings;
+  text-align: center;
+}
+
+.results-cooking-time {
+  grid-area: results-cooking-time;
+}
+
+.results-nutritional-value p {
+  margin: 0;
+}
+
+.results-ingredients {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.results-ingredients ul {
+  list-style: inside;
+}
+
+.results-ingredients li {
+  text-align: left;
+  padding: 5px 0 5px 5px;
+}
+
+.results-instructions {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.results-instructions li {
+  text-align: left;
+  padding: 5px 0;
+  line-height: 30px;
+}
+
+/********************************************* CALORIES *********************************************/
+#calories {
+  grid-area: calories;
+  width: 100%;
+  height: auto;
+  display: grid;
+  justify-items: center;
+  margin: 20px 0;
+}
+
+#calories h1 {
+  margin: 15px 0;
+}
+
+.calories-info {
+  width: 80%;
+  padding: 10px 0;
+}
+
+.calorie-calculator {
+  width: 40%;
+  height: auto;
+  background: rgba(57, 87, 159, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(7, auto);
+  grid-template-areas:
+    "age age-input"
+    "height height-input"
+    "weight weight-input"
+    "activity activity-input"
+    "gender-div gender-div"
+    "buttons buttons";
+  grid-row-gap: 10px;
+}
+
+label {
+  color: white;
+  line-height: 40px;
+}
+
+.buttons {
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  grid-area: buttons;
+}
+
+label[for="height"] {
+  grid-area: height;
+}
+
+label[for="weight"] {
+  grid-area: weight;
+}
+
+label[for="age"] {
+  grid-area: age;
+}
+
+label[for="activity"] {
+  grid-area: activity;
+}
+
+.gender-div {
+  grid-area: gender-div;
+}
+
+#weight {
+  grid-area: weight-input;
+}
+
+#height {
+  grid-area: height-input;
+}
+
+#age {
+  grid-area: age-input;
+}
+
+#activity {
+  grid-area: activity-input;
+}
+
+.calorie-calculator input[type="number"],
+.calorie-calculator select {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  padding: 5px 20px;
+  outline: none;
+  border: solid 0.5px black;
+  font-family: Quicksand, sans-serif;
+}
+
+.calorie-calculator label[for="gender"] {
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 50px;
+  grid-area: gender;
+}
+
+#male {
+  grid-area: male-input;
+}
+
+#female {
+  grid-area: female-input;
+  margin-left: 15px;
+}
+
+label[for="male"] {
+  grid-area: male;
+}
+
+label[for="female"] {
+  grid-area: female;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background: rgb(99, 221, 23);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 60%);
+  padding: 10px;
+  border: solid 0.5px silver;
+  border-radius: 30px;
+  width: 100px;
+  height: 45px;
+  font-family: quicksand, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin: 10px 1.5px 5px 1.5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/********************************************* FOOTER *********************************************/
+footer {
+  grid-area: footer;
+  width: 100%;
+  background: blue;
+  height: calc(100vh - 40px);
+}
+
+/********************************************* COPYRIGHT *********************************************/
+#copyright {
+  grid-area: copyright;
+  width: 100%;
+  background: purple;
+  height: 40px;
+}
+
+/*********************************************************************************************************/
+/********************************************* MEDIA QUERIES *********************************************/
+/*********************************************************************************************************/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+  }
+
+  .slogan {
+    font-size: 1.2rem;
+  }
+
+  button {
+    margin: 6px;
+  }
+
+  /* random recipe cards */
+  .random-recipes-cards {
+    grid-area: random-recipes-cards;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    height: auto;
+  }
+
+  .cards-container {
+    width: 100%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "card1"
+      "card2"
+      "card3"
+      "card4";
+    grid-row-gap: 20px;
+    height: auto;
+  }
+
+  .card {
+    width: 300px;
+    margin: 0 auto;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  .random-recipes-btn {
+    width: 70%;
+  }
+
+  /** Category Container **/
+  .category-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, auto);
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    margin: 30px auto;
+    grid-template-areas:
+      "by-name by-nutritional-value"
+      "by-ingredients by-similar-recipes"
+      "by-preferred-cuisine soups"
+      "salads burgers"
+      "desserts sauces"
+      "burgers lunch";
+    overflow: hidden;
+  }
+
+  .category-entry {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    justify-items: center;
+    font-weight: initial;
+    font-size: 0.9rem;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .category-entry p {
+    margin: 0 auto;
+  }
+
+  .category-entry img {
+    display: none;
+  }
+
+  /** Search results box **/
+  .search-result-container {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  .search-results-container-top {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "results-image"
+      "results-title"
+      "results-servings"
+      "results-cooking-time"
+      "results-nutritional-value";
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    grid-row-gap: 8px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    grid-column-gap: 0;
+  }
+
+  .search-result-container img {
+    border-radius: 20px;
+    margin: 15px auto;
+    width: 95%;
+  }
+
+  .results-title {
+    font-size: 1.4rem;
+    margin: 10px auto;
+    width: 95%;
+  }
+
+  .results-nutritional-value p {
+    padding: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .results-instructions ol {
+    width: 100%;
+    padding-left: 15px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 4.5rem;
+    margin-bottom: 10px;
+  }
+
+  .slogan {
+    font-size: 1.4rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .menu {
+    display: inline-block;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .title {
+    font-size: 5rem;
+    margin-bottom: 10px;
+  }
+
+  .slogan {
+    font-size: 1.3rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
